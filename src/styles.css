@@ -1,242 +1,112 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
-
+@source "../src";
 @custom-variant dark (&:is(.dark *));
-
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+ --font-sans: "Manrope", "Kantumruy Pro", sans-serif;
+ --font-display: "Manrope", "Kantumruy Pro", sans-serif;
+ --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px; --radius-xl: 10px;
+ --color-background: var(--background); --color-foreground: var(--foreground);
+ --color-card: var(--card); --color-card-foreground: var(--foreground);
+ --color-popover: var(--card); --color-popover-foreground: var(--foreground);
+ --color-primary: var(--gold); --color-primary-foreground: var(--primary-foreground);
+ --color-secondary: var(--secondary); --color-secondary-foreground: var(--foreground);
+ --color-muted: var(--secondary); --color-muted-foreground: var(--muted-foreground);
+ --color-accent: var(--accent); --color-accent-foreground: var(--foreground);
+ --color-destructive: var(--destructive); --color-destructive-foreground: var(--foreground);
+ --color-border: var(--border); --color-input: var(--border); --color-ring: var(--cyan);
+ --color-cyan: var(--cyan); --color-gold: var(--gold); --color-overlay: var(--overlay); --color-qr: var(--qr);
 }
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+:root, .dark {
+ --background: oklch(0.155 0.004 190); --foreground: oklch(0.96 0.003 100);
+ --card: oklch(0.19 0.005 190); --secondary: oklch(0.23 0.005 190); --accent: oklch(0.26 0.008 190);
+ --muted-foreground: oklch(0.69 0.008 190); --border: oklch(0.32 0.008 190);
+ --cyan: oklch(0.8 0.11 190); --gold: oklch(0.83 0.095 85);
+ --primary-foreground: oklch(0.18 0.008 85); --destructive: oklch(0.64 0.2 25);
+ --overlay: oklch(0.08 0.004 190 / 85%); --qr: oklch(1 0 0);
+ --hero-shade: linear-gradient(90deg, var(--background) 0%, color-mix(in oklab,var(--background) 93%, transparent) 21%, color-mix(in oklab,var(--background) 65%,transparent) 43%, transparent 67%);
+ --float-shadow: 0 6px 28px oklch(0 0 0 / 30%);
 }
-
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
-}
-
-@theme inline {
-  --color-cyan: var(--cyan);
-  --color-gold: var(--gold);
-  --color-overlay: var(--overlay);
-  --color-qr: var(--qr);
-  --font-display: "Cormorant Garamond", "Kantumruy Pro", serif;
-  --font-sans: "Kantumruy Pro", system-ui, sans-serif;
-}
-
-:root {
-  --background: oklch(0.14 0.015 260);
-  --foreground: oklch(0.95 0.01 90);
-  --card: oklch(0.18 0.02 260);
-  --muted-foreground: oklch(0.68 0.02 260);
-  --border: oklch(1 0 0 / 9%);
-  --cyan: oklch(0.72 0.13 215);
-  --gold: oklch(0.84 0.16 84);
-  --primary: var(--gold);
-  --primary-foreground: oklch(0.15 0.02 260);
-  --overlay: oklch(0.08 0.01 260 / 75%);
-  --qr: oklch(1 0 0);
-  --glow-cyan: 0 0 40px -8px color-mix(in oklab, var(--cyan) 60%, transparent);
-  --glow-gold: 0 0 40px -8px color-mix(in oklab, var(--gold) 55%, transparent);
-}
-
 @layer base {
-  * { border-color: var(--color-border); }
-  body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
+ * { border-color: var(--border); letter-spacing: 0; }
+ html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+ body { background: var(--background); color: var(--foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+ button, a, input, select { -webkit-tap-highlight-color: transparent; }
+ select option { background: var(--card); color: var(--foreground); }
+ ::selection { background: var(--cyan); color: var(--background); }
 }
-
-@utility lux-bg {
-  background-image:
-    radial-gradient(60rem 30rem at 15% -10%, color-mix(in oklab, var(--cyan) 18%, transparent), transparent 60%),
-    radial-gradient(50rem 30rem at 95% 0%, color-mix(in oklab, var(--gold) 12%, transparent), transparent 60%);
+.page-width { max-width: 1280px; margin-inline: auto; padding-inline: 56px; }
+.announcement { display:flex; align-items:center; justify-content:center; gap:12px; min-height:34px; padding:7px 16px; background:var(--secondary); font-size:10px; }
+.status-dot { width:5px; height:5px; background:var(--cyan); border-radius:50%; flex-shrink:0; }
+.site-header { border-bottom:1px solid var(--border); background:var(--background); }
+.brand-symbol { font-weight:800; font-size:30px; position:relative; color:var(--cyan); line-height:1; padding-right:9px; }
+.brand-symbol span { position:absolute; right:0; top:4px; width:2px; height:23px; background:var(--gold); }
+.nav-link { display:flex; align-items:center; gap:5px; font-size:12px; color:var(--muted-foreground); transition:color .2s; }
+.nav-link:hover { color:var(--cyan); }
+.studio-hero { position:relative; min-height:530px; overflow:hidden; background:var(--background); }
+.hero-art { position:absolute; width:100%; height:100%; object-fit:cover; object-position:center; }
+.hero-shade { position:absolute; inset:0; background:var(--hero-shade); }
+.hero-copy { padding-top:67px; padding-bottom:48px; max-width:580px; }
+.eyebrow { display:flex; align-items:center; gap:10px; font-size:10px; font-weight:600; }
+.small-line { width:22px; height:1px; background:var(--cyan); }
+.hero-title { margin-top:24px; font-size:50px; font-weight:650; line-height:1.17; }
+.hero-title > span { margin-top:9px; font-size:46px; }
+.hero-note { display:flex; align-items:center; gap:12px; margin-top:30px; font-size:10px; color:var(--muted-foreground); }
+.hero-caption { position:absolute; right:56px; bottom:24px; font-size:8px; color:var(--muted-foreground); }
+.benefit-band { border-block:1px solid var(--border); background:var(--card); }
+.benefit-band .page-width > div { display:flex; align-items:center; justify-content:center; gap:10px; padding:20px 0; font-size:11px; }
+.benefit-band svg { width:16px; height:16px; color:var(--gold); }
+.benefit-band .page-width > div + div { border-left:1px solid var(--border); }
+.collection-section { padding-top:64px; padding-bottom:64px; }
+.collection-controls { display:flex; justify-content:space-between; gap:16px; border-bottom:1px solid var(--border); padding-bottom:18px; }
+.category-list { display:flex; flex-wrap:wrap; gap:5px; }
+.category-tab { height:38px; padding:0 10px; font-size:11px; color:var(--muted-foreground); border:1px solid transparent; }
+.category-tab svg { width:13px; height:13px; }
+.category-active { color:var(--cyan); border-color:color-mix(in oklab,var(--cyan) 28%,transparent); background:color-mix(in oklab,var(--cyan) 8%,var(--background)); }
+.category-count { font-size:9px; opacity:.7; }
+.search-field { display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--background); border:1px solid var(--border); border-radius:6px; }
+.search-field:focus-within { border-color:var(--cyan); }
+.search-products { flex-shrink:0; width:245px; height:38px; }
+.product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.product-card { display:flex; flex-direction:column; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--card); transition:transform .3s,border-color .3s; }
+.product-card:hover { transform:translateY(-4px); border-color:color-mix(in oklab,var(--gold) 50%,var(--border)); }
+.product-image { position:relative; aspect-ratio:1.52; overflow:hidden; background:var(--secondary); }
+.product-image img { height:100%; width:100%; object-fit:cover; transition:transform .6s; }
+.product-card:hover img { transform:scale(1.04); }
+.product-badge,.discount-badge { position:absolute; top:14px; font-size:9px; border-radius:3px; padding:5px 8px; }
+.product-badge { left:14px; background:var(--overlay); color:var(--foreground); backdrop-filter:blur(8px); border:1px solid color-mix(in oklab,var(--foreground) 20%,transparent); }
+.discount-badge { right:14px; background:var(--gold); color:var(--primary-foreground); font-weight:600; }
+.product-title { font-size:16px; font-weight:600; line-height:1.6; min-height:52px; }
+.studio-band { padding-block:52px; background:var(--card); border-block:1px solid var(--border); }
+.footer { padding-top:40px; padding-bottom:30px; }
+.telegram-fab { position:fixed; right:24px; bottom:24px; width:48px; height:48px; border-radius:50%; background:var(--cyan); color:var(--background); box-shadow:var(--float-shadow); z-index:40; }
+.mobile-order-bar { display:none; }
+.checkout-dialog { box-shadow:var(--float-shadow); }
+@media(min-width:1500px) { .studio-hero { min-height:560px; } .hero-art { object-position:center 55%; } }
+@media(max-width:1100px) { .page-width { padding-inline:32px; } .collection-controls { flex-direction:column-reverse; } .search-products { width:100%; max-width:380px; } .hero-copy { max-width:520px; } .hero-title { font-size:46px; } .hero-title > span { font-size:42px; } .product-grid { gap:18px; } }
+@media(max-width:767px) {
+ .page-width { padding-inline:20px; } .site-header .h-20 { height:72px; }
+ .studio-hero { min-height:640px; } .hero-art { width:100%; height:340px; top:auto; bottom:0; object-position:65% center; }
+ .hero-shade { background:linear-gradient(180deg,var(--background) 0%,var(--background) 47%,color-mix(in oklab,var(--background) 80%,transparent) 56%,transparent 73%); }
+ .hero-copy { padding-top:35px; padding-bottom:240px; max-width:100%; }
+ .hero-title { font-size:38px; margin-top:20px; } .hero-title > span { font-size:34px; margin-top:7px; }
+ .hero-copy > p.mt-6 { font-size:13px; margin-top:18px; max-width:340px; line-height:1.8; }
+ .hero-copy > p.mt-3 { font-size:11px; max-width:330px; }
+ .hero-copy > .mt-8 { margin-top:22px; gap:16px; } .hero-copy .mt-8 a { font-size:11px; }
+ .hero-note { margin-top:18px; } .hero-caption { right:20px; bottom:14px; font-size:7px; }
+ .benefit-band .page-width { grid-template-columns:1fr; padding-block:7px; }
+ .benefit-band .page-width > div { padding:8px 0; justify-content:flex-start; font-size:10px; }
+ .benefit-band .page-width > div + div { border-left:0; }
+ .collection-section { padding-top:38px; padding-bottom:40px; }
+ .collection-section h2 { font-size:28px; line-height:1.4; max-width:320px; }
+ .collection-section .mb-8 { margin-bottom:22px; }
+ .category-list { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
+ .category-tab { flex-shrink:0; } .search-products { max-width:none; }
+ .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+ .product-title { font-size:14px; } .product-image { aspect-ratio:1.3; }
+ .studio-band { padding-block:36px; } .footer { padding-bottom:115px; }
+ .telegram-fab { bottom:94px; right:18px; width:44px; height:44px; }
+ .mobile-order-bar { display:flex; position:fixed; z-index:40; bottom:0; left:0; right:0; align-items:center; justify-content:space-between; gap:12px; padding:12px 20px calc(12px + env(safe-area-inset-bottom)); background:color-mix(in oklab,var(--background) 95%,transparent); border-top:1px solid var(--border); backdrop-filter:blur(16px); }
 }
-@utility text-gradient-lux {
-  background: linear-gradient(90deg, var(--cyan), var(--gold));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-@utility card-lux {
-  display: flex; flex-direction: column; overflow: hidden; border-radius: 1.25rem;
-  border: 1px solid var(--border); background: color-mix(in oklab, var(--card) 85%, transparent);
-  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
-  &:hover { transform: translateY(-6px); border-color: color-mix(in oklab, var(--gold) 45%, transparent); box-shadow: var(--glow-gold); }
-}
-@utility banner-lux {
-  position: relative; display: grid; place-items: center; height: 9rem;
-  background: linear-gradient(135deg, color-mix(in oklab, var(--cyan) 22%, var(--card)), var(--card) 55%, color-mix(in oklab, var(--gold) 16%, var(--card)));
-  border-bottom: 1px solid var(--border);
-}
-@utility badge-gold {
-  position: absolute; left: 1rem; top: 1rem; border-radius: 999px; padding: .2rem .7rem; font-size: .7rem; font-weight: 600;
-  background: var(--gold); color: var(--primary-foreground);
-}
-@utility badge-cyan {
-  position: absolute; right: 1rem; top: 1rem; border-radius: 999px; padding: .2rem .7rem; font-size: .7rem; font-weight: 600;
-  border: 1px solid var(--cyan); color: var(--cyan);
-}
-@utility btn-lux {
-  display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 999px; padding: .65rem 1.2rem;
-  font-size: .85rem; font-weight: 600; color: var(--primary-foreground);
-  background: linear-gradient(90deg, var(--gold), color-mix(in oklab, var(--gold) 70%, var(--cyan)));
-  transition: box-shadow .3s, transform .2s;
-  &:hover { box-shadow: var(--glow-gold); transform: translateY(-1px); }
-}
-@utility btn-ghost-lux {
-  display: inline-flex; align-items: center; gap: .5rem; border-radius: 999px; padding: .5rem 1rem;
-  border: 1px solid color-mix(in oklab, var(--cyan) 50%, transparent); color: var(--cyan);
-  &:hover { box-shadow: var(--glow-cyan); }
-}
-@utility tab-lux {
-  border-radius: 999px; padding: .5rem 1.1rem; border: 1px solid var(--border); color: var(--muted-foreground); transition: all .3s;
-  &:hover { color: var(--foreground); }
-}
-@utility tab-lux-active {
-  color: var(--cyan); border-color: var(--cyan); box-shadow: var(--glow-cyan);
-  background: color-mix(in oklab, var(--cyan) 10%, transparent);
-}
-@utility modal-lux {
-  border-radius: 1.5rem; border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
-  background: var(--card); padding: 1.75rem; box-shadow: var(--glow-gold);
-}
-@utility input-lux {
-  display: flex; gap: .6rem; align-items: center; border-radius: .8rem; padding: .75rem 1rem;
-  border: 1px solid var(--border); background: var(--background);
-  &:focus-within { border-color: var(--cyan); box-shadow: var(--glow-cyan); }
-}
-@utility khqr-card {
-  max-width: 16rem; overflow: hidden; border-radius: 1rem; border: 1px solid var(--border); background: var(--background);
-}
-@utility khqr-head {
-  padding: .6rem; font-weight: 700; letter-spacing: .2em; color: var(--qr);
-  background: oklch(0.55 0.2 25);
-}
-@utility fab-telegram {
-  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 40; display: grid; place-items: center;
-  width: 3.5rem; height: 3.5rem; border-radius: 999px; color: var(--primary-foreground);
-  background: var(--cyan); box-shadow: var(--glow-cyan); transition: transform .2s;
-  &:hover { transform: scale(1.08); }
-}
-@media (max-width: 767px) {
-  .fab-telegram { bottom: 5.5rem; }
-}
-
-@utility animate-rise {
-  animation: rise .6s cubic-bezier(.2,.8,.2,1) both;
-}
-@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media(max-width:520px) { .product-grid { grid-template-columns:1fr; } .product-image { aspect-ratio:1.6; } .product-title { min-height:0; font-size:17px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation:none !important; transition:none !important; } }

@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep catalog data separate from presentation; redesigns must preserve product prices and features.
+- Storefront checkout uses the shared accessible Dialog and Button components; keep payment confirmation manual via Telegram.
+- Import local product artwork from a browser-safe presentation module, not the catalog data module.
