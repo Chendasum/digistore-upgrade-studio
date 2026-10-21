@@ -232,6 +232,10 @@
   background: var(--cyan); box-shadow: var(--glow-cyan); transition: transform .2s;
   &:hover { transform: scale(1.08); }
 }
+@media (max-width: 767px) {
+  .fab-telegram { bottom: 5.5rem; }
+}
+
 @utility animate-rise {
   animation: rise .6s cubic-bezier(.2,.8,.2,1) both;
 }
